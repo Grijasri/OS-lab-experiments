@@ -1,42 +1,6 @@
 # Experiment 11: Memory Allocation Methods (First Fit, Best Fit, Worst Fit)
 
-## Ex. No: 11
-
-### Aim
-To implement the memory allocation methods namely First Fit, Best Fit, and Worst Fit and allocate memory blocks to processes efficiently.
-
----
-
-## Algorithm
-
-### A. FIRST FIT
-1. Read the number of memory blocks (`nb`) and processes (`np`).
-2. Read the size of each memory block and process.
-3. For each process, scan memory blocks from the beginning (index 0).
-4. Allocate the first block that is large enough (`blockSize[j] >= processSize[i]`).
-5. Reduce the remaining size of the allocated block (`blockSize[j] -= processSize[i]`).
-6. Repeat until all processes are processed.
-7. Display allocation details.
-
-### B. BEST FIT
-1. Read block sizes and process sizes.
-2. For each process, scan all available blocks.
-3. Select the smallest block that can accommodate the process (`blockSize[j] >= processSize[i]`).
-4. Allocate the process to that best index (`bestIdx`).
-5. Update remaining block size.
-6. Display allocation details.
-
-### C. WORST FIT
-1. Read block sizes and process sizes.
-2. For each process, scan all available blocks.
-3. Select the largest available block that can accommodate the process (`blockSize[j] >= processSize[i]`).
-4. Allocate the process to that worst index (`worstIdx`).
-5. Update remaining block size.
-6. Display allocation details.
-
----
-
-## Program A: FIRST FIT
+## 1. FIRST FIT
 
 ### C Program
 ```c
@@ -91,7 +55,7 @@ int main()
 }
 ```
 
-### Shell Script (First Fit)
+### Shell Script (`firstfit.sh`)
 ```bash
 #!/bin/bash
 echo "First Fit Memory Allocation Demonstration"
@@ -100,12 +64,11 @@ processes=(212 417 112 426)
 
 echo "Memory Blocks: ${blocks[*]}"
 echo "Processes: ${processes[*]}"
-echo "Allocation Performed Using First Fit"
 ```
 
 ---
 
-## Program B: BEST FIT
+## 2. BEST FIT
 
 ### C Program
 ```c
@@ -168,7 +131,7 @@ int main()
 
 ---
 
-## Program C: WORST FIT
+## 3. WORST FIT
 
 ### C Program
 ```c
@@ -231,7 +194,7 @@ int main()
 
 ---
 
-### Sample Output (First Fit / Best Fit / Worst Fit)
+## Output
 
 ```text
 Enter Number of Blocks: 5
@@ -262,11 +225,3 @@ Process No	Process Size	Block No
 3		112		2
 4		426		Not Allocated
 ```
-
----
-
-### Inference
-The memory allocation methods First Fit, Best Fit, and Worst Fit were studied and implemented successfully. The allocation of processes to memory blocks was analyzed, and the differences in memory utilization and fragmentation among the three methods were observed and verified.
-
-### Result
-Thus, the programs to implement First Fit, Best Fit, and Worst Fit memory allocation methods were executed successfully using C programming and Shell scripting, and the outputs were verified.

@@ -1,38 +1,6 @@
 # Experiment 14: File Allocation Strategies
 
-## Ex. No: 14
-
-### Aim
-To implement various File Allocation Strategies such as Sequential Allocation, Indexed Allocation, and Linked Allocation and study the allocation of files in secondary storage.
-
----
-
-## Algorithms
-
-### A. SEQUENTIAL ALLOCATION
-1. Read file starting block number (`start`) and file length (`length`).
-2. Allocate consecutive contiguous memory blocks from `start` to `start + length - 1`.
-3. Display all allocated blocks.
-4. Stop.
-
-### B. INDEXED ALLOCATION
-1. Read index block number (`indexBlock`).
-2. Read the total number of blocks needed (`n`).
-3. Read block numbers allocated to the file and store them in the index block.
-4. Display the index block and all points/allocated block numbers.
-5. Stop.
-
-### C. LINKED ALLOCATION
-1. Read total number of blocks (`n`).
-2. Read block numbers where file parts are allocated.
-3. Link each block to the next allocated block (`block[i] -> block[i+1]`).
-4. Set last block pointer to `NULL`.
-5. Display the linked list representation of allocated blocks.
-6. Stop.
-
----
-
-## Program A: SEQUENTIAL FILE ALLOCATION
+## 1. Sequential File Allocation
 
 ### C Program
 ```c
@@ -59,7 +27,7 @@ int main()
 }
 ```
 
-### Shell Script (Sequential Allocation)
+### Shell Script
 ```bash
 #!/bin/bash
 echo "Enter Starting Block:"
@@ -77,7 +45,7 @@ echo
 
 ---
 
-## Program B: INDEXED FILE ALLOCATION
+## 2. Indexed File Allocation
 
 ### C Program
 ```c
@@ -111,7 +79,7 @@ int main()
 }
 ```
 
-### Shell Script (Indexed Allocation)
+### Shell Script
 ```bash
 #!/bin/bash
 echo "Enter Index Block:"
@@ -136,7 +104,7 @@ echo
 
 ---
 
-## Program C: LINKED FILE ALLOCATION
+## 3. Linked File Allocation
 
 ### C Program
 ```c
@@ -166,7 +134,7 @@ int main()
 }
 ```
 
-### Shell Script (Linked Allocation)
+### Shell Script
 ```bash
 #!/bin/bash
 echo "Enter Number of Blocks:"
@@ -188,19 +156,17 @@ echo "${block[$((n-1))]} --> NULL"
 
 ---
 
-### Sample Inputs & Outputs
+## Output
 
-#### Sequential File Allocation
 ```text
+--- Sequential File Allocation ---
 Enter Starting Block: 10
 Enter File Length (Number of Blocks): 5
 
 Allocated Blocks:
 10 11 12 13 14 
-```
 
-#### Indexed File Allocation
-```text
+--- Indexed File Allocation ---
 Enter Index Block: 9
 Enter Number of Blocks: 4
 Enter Block Numbers:
@@ -208,10 +174,8 @@ Enter Block Numbers:
 
 Index Block : 9
 Allocated Blocks : 11 15 22 28 
-```
 
-#### Linked File Allocation
-```text
+--- Linked File Allocation ---
 Enter Number of Blocks: 4
 Enter Block Numbers:
 14 29 35 42
@@ -219,11 +183,3 @@ Enter Block Numbers:
 Linked Allocation:
 14 --> 29 --> 35 --> 42 --> NULL
 ```
-
----
-
-### Inference
-The various File Allocation Strategies namely Sequential Allocation, Indexed Allocation, and Linked Allocation were studied and implemented successfully. The allocation and organization of file blocks in secondary storage were analyzed, and the characteristics of each allocation strategy were observed and verified.
-
-### Result
-Thus, the programs to implement Sequential Allocation, Indexed Allocation, and Linked Allocation strategies were executed successfully using C programming and Shell scripting, and the outputs were verified.

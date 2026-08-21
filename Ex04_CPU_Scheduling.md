@@ -1,28 +1,6 @@
 # Experiment 4: CPU Scheduling Algorithms
 
-## Ex. No: 4
-
-### Aim
-To write and execute C and Shell programs for implementing various CPU Scheduling Algorithms:
-1. First Come First Serve (FCFS)
-2. Shortest Job First (SJF - Non-Preemptive)
-3. Priority Scheduling
-4. Round Robin Scheduling
-
-and to calculate Waiting Time (WT), Turnaround Time (TAT), Average Waiting Time, and Average Turnaround Time.
-
----
-
 ## 1. First Come First Serve (FCFS)
-
-### Algorithm
-1. Read the number of processes (`n`).
-2. Read burst time (`bt`) for each process.
-3. Set waiting time of first process as `wt[0] = 0`.
-4. Calculate waiting time for remaining processes: `wt[i] = wt[i-1] + bt[i-1]`.
-5. Calculate turnaround time for each process: `tat[i] = wt[i] + bt[i]`.
-6. Calculate average waiting time and average turnaround time.
-7. Display results.
 
 ### C Program
 ```c
@@ -107,7 +85,7 @@ echo "Average Waiting Time = $avg_wt"
 echo "Average Turnaround Time = $avg_tat"
 ```
 
-### Sample Output (FCFS)
+### Output
 ```text
 Enter Number of Processes: 3
 Enter Burst Time for P1: 24
@@ -125,14 +103,7 @@ Average Turnaround Time = 27.00
 
 ---
 
-## 2. Shortest Job First (SJF - Non-Preemptive)
-
-### Algorithm
-1. Read the number of processes and burst times.
-2. Sort processes in ascending order according to burst time.
-3. Calculate waiting time: `wt[0] = 0`, `wt[i] = wt[i-1] + bt[i-1]`.
-4. Calculate turnaround time: `tat[i] = wt[i] + bt[i]`.
-5. Calculate averages and display results.
+## 2. Shortest Job First (SJF)
 
 ### C Program
 ```c
@@ -154,7 +125,6 @@ int main()
         p[i] = i + 1;
     }
 
-    // Sorting burst times in ascending order
     for(i = 0; i < n - 1; i++)
     {
         for(j = i + 1; j < n; j++)
@@ -205,20 +175,14 @@ do
     p[$i]=$((i+1))
 done
 
-# Sorting burst times (Ascending Order)
 for ((i=0;i<n-1;i++))
 do
     for ((j=i+1;j<n;j++))
     do
         if [ ${bt[i]} -gt ${bt[j]} ]
         then
-            temp=${bt[i]}
-            bt[$i]=${bt[j]}
-            bt[$j]=$temp
-
-            temp=${p[i]}
-            p[$i]=${p[j]}
-            p[$j]=$temp
+            temp=${bt[i]}; bt[$i]=${bt[j]}; bt[$j]=$temp
+            temp=${p[i]}; p[$i]=${p[j]}; p[$j]=$temp
         fi
     done
 done
@@ -250,7 +214,7 @@ echo "Average Waiting Time = $avg_wt"
 echo "Average Turnaround Time = $avg_tat"
 ```
 
-### Sample Output (SJF)
+### Output
 ```text
 Enter Number of Processes: 4
 Enter Burst Time for P1: 6
@@ -271,12 +235,6 @@ Average Turnaround Time = 13.00
 ---
 
 ## 3. Priority Scheduling
-
-### Algorithm
-1. Read process burst times and priorities (Lower number = Higher Priority).
-2. Sort processes according to priority.
-3. Calculate waiting time and turnaround time.
-4. Display results.
 
 ### C Program
 ```c
@@ -300,7 +258,6 @@ int main()
         p[i] = i + 1;
     }
 
-    // Sort according to priority
     for(i = 0; i < n - 1; i++)
     {
         for(j = i + 1; j < n; j++)
@@ -349,7 +306,6 @@ do
     p[$i]=$((i+1))
 done
 
-# Sort according to Priority
 for ((i=0;i<n-1;i++))
 do
     for ((j=i+1;j<n;j++))
@@ -390,7 +346,7 @@ echo "Average Waiting Time = $avg_wt"
 echo "Average Turnaround Time = $avg_tat"
 ```
 
-### Sample Output (Priority)
+### Output
 ```text
 Enter Number of Processes: 3
 Enter Burst Time for P1: 10
@@ -412,14 +368,6 @@ Average Turnaround Time = 5.67
 ---
 
 ## 4. Round Robin Scheduling
-
-### Algorithm
-1. Read number of processes and burst times.
-2. Read time quantum (`tq`).
-3. Execute each process for the given quantum.
-4. If burst time remains (`rem_bt > 0`), place process back in queue.
-5. Continue until all processes finish.
-6. Calculate waiting time (`wt = completion_time - bt`) and turnaround time (`tat = completion_time`).
 
 ### C Program
 ```c
@@ -545,7 +493,7 @@ echo "Average Waiting Time = $avg_wt"
 echo "Average Turnaround Time = $avg_tat"
 ```
 
-### Sample Output (Round Robin)
+### Output
 ```text
 Enter Number of Processes: 3
 Enter Burst Time for P1: 24
@@ -561,11 +509,3 @@ P3	3	7	10
 Average Waiting Time = 5.67
 Average Turnaround Time = 15.67
 ```
-
----
-
-### Inference
-The C and Shell programs for implementing CPU Scheduling Algorithms (FCFS, SJF, Priority Scheduling, and Round Robin Scheduling) were successfully developed, executed, and the Waiting Time and Turnaround Time were obtained.
-
-### Result
-Thus, CPU scheduling algorithms FCFS, SJF, Priority, and Round Robin were implemented and verified.
